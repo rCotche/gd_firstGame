@@ -1,0 +1,50 @@
+ctrl + d = duplicate
+ctrl + a = add node
+f = find/center the view element
+=======================
+game
+
+tilemap > tileset > 
+tileset = config
+tilemap = peindre map
+
+ainmationplayer > node2d > transform > key > create >
+animation > forward 1 sec > move platform > node2d > transform > key > create
+animation > click btn loop > click btn loop > increase lenght animation > drag last key frame to the end > autoplay
+=======================
+player
+
+characterbody2d:
+attacher script
+
+animatedsprite2d:
+animation > sprite frame > resource > sprite sheet... > 10 fps ... autoplay
+
+collisionshape2d > shape > circleshape
+
+(pour que le signal body_entered is trigger que pour le player et nn un autre object physics)
+player > collisionobject2d > collision > layer 2
+
+=======================
+platform
+
+animatablebody2d
+sprite2d > texture > region > enable > edit region > pixel snap
+collisionshape2d > shape > rectangleshape
+collisionshape2d > one way collision
+
+=======================
+coin
+
+area2d (detect collision without collide with)
+animatdesprite2d:
+animation > sprite frame > resource > ... > 10 fps > autoplay
+
+collisionshape2d > shape > circleshape
+
+(signal trigger code based on events that happen in our game)
+coin > node tab > all signal
+db click body_entred signal > connect
+
+mask define what layer a node collide with
+coin > collisionobject2d > collision > mask 2
