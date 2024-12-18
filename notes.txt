@@ -11,6 +11,16 @@ tilemap > tileset >
 tileset = config
 tilemap = peindre map
 
+tilemap > tileset > physics layer
+tileset menu > paint > add physics layer
+
+tilemap > layers > mid
+tilemap > layers > add > background
+
+background layers to the top. to make sur it s drawn first
+
+rectangle btn to paint a lot of tiles at once
+
 ainmationplayer > node2d > transform > key > create >
 animation > forward 1 sec > move platform > node2d > transform > key > create
 animation > click btn loop > click btn loop > increase lenght animation > drag last key frame to the end > autoplay
@@ -70,3 +80,8 @@ timer > wait time > 0.6 s > one shot enable
 drag node on script > hold ctrl  while release it
 
 $timer = path entre un node to another
+
+=======================
+Node
+
+pour organiser(empty node)
