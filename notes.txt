@@ -2,6 +2,9 @@ ctrl + d = duplicate
 ctrl + a = add node
 f = find/center the view element
 =======================
+reusable element = scene
+
+=======================
 game
 
 tilemap > tileset > 
@@ -32,6 +35,14 @@ animatablebody2d
 sprite2d > texture > region > enable > edit region > pixel snap
 collisionshape2d > shape > rectangleshape
 collisionshape2d > one way collision
+=======================
+camera
+
+camera2d > position smoothing > speed 5 px/s
+camera2d > limit > bottom 120 px > smoothed enable
+
+ruler
+press r
 
 =======================
 coin
@@ -48,3 +59,14 @@ db click body_entred signal > connect
 
 mask define what layer a node collide with
 coin > collisionobject2d > collision > mask 2
+
+=======================
+killzone
+
+no collisionshape pour pouvoir le réutiliser sur plusieurs elements
+
+timer > wait time > 0.6 s > one shot enable
+
+drag node on script > hold ctrl  while release it
+
+$timer = path entre un node to another
