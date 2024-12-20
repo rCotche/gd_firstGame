@@ -3,6 +3,6 @@
 /android/
 
 # jeux
-"First Game.exe"
+First*Game.exe
 # mon scipt
 gitPush.bat
