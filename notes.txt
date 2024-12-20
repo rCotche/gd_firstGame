@@ -107,3 +107,27 @@ raycast to detect collision
 GameManager
 
 access as a unique name
+
+=======================
+audiostreamplayer2d
+
+audiostreamplayer2d > stream
+autoplay
+
+audio (en bas, au niveau de la console) > add bus > music + sfx
+
+drag the node in folder scene = make it a scene
+
+scene as a autoload = global scene/script that persist à travers notre jeu peu importe la scene qui est loaded
+
+projet
+projet settings > autoload
+
+1h12
+animationplayer
+animatedsprite2d when picking visible property off else on
+collisionshape2d disable
+audiostream2d play
+
+add
+method track > coin > click droit > queue_free

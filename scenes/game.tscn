@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c6hlgp1ul6u3n"]
+[gd_scene load_steps=17 format=3 uid="uid://c6hlgp1ul6u3n"]
 
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_1a0h3"]
 [ext_resource type="PackedScene" uid="uid://ct4tyddopqxvd" path="res://scenes/player.tscn" id="1_iarfw"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://booygl6d1fi3b" path="res://scenes/slime.tscn" id="6_1wmtm"]
 [ext_resource type="FontFile" uid="uid://m14u0c03hwbf" path="res://assets/fonts/PixelOperator8.ttf" id="7_ni2ij"]
 [ext_resource type="FontFile" uid="uid://b78xqjgt5lqj3" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="9_fwbnt"]
+[ext_resource type="PackedScene" uid="uid://2myhqxdnfxk4" path="res://scenes/music.tscn" id="10_hptf3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_budum"]
 texture = ExtResource("2_vmnw3")
@@ -343,3 +344,5 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("9_fwbnt")
 theme_override_font_sizes/font_size = 8
 text = "Great job !"
+
+[node name="Music" parent="." instance=ExtResource("10_hptf3")]
