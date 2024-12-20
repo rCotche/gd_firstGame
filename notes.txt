@@ -30,6 +30,9 @@ rectangle btn to paint a lot of tiles at once
 ainmationplayer > node2d > transform > key > create >
 animation > forward 1 sec > move platform > node2d > transform > key > create
 animation > click btn loop > click btn loop > increase lenght animation > drag last key frame to the end > autoplay
+
+label
+
 =======================
 player
 
