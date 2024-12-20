@@ -1,6 +1,7 @@
 ctrl + d = duplicate
 ctrl + a = add node
 f = find/center the view element
+collisionshape2d > rectangleshape > hold alt to scale
 =======================
 reusable element = scene
 
@@ -85,3 +86,10 @@ $timer = path entre un node to another
 Node
 
 pour organiser(empty node)
+
+=======================
+slime
+
+node2d > animatedsprite2d > animation > sprite frames > nouveau sprite frame > select spriteframes > resource > sprite sheets (en bas, au niveau de la console) > autoplay > 10 fps
+
+raycast to detect collision
