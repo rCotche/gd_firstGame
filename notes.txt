@@ -6,6 +6,11 @@ collisionshape2d > rectangleshape > hold alt to scale
 reusable element = scene
 
 =======================
+projet
+projet settings > input map > add new action
+click +
+
+=======================
 game
 
 tilemap > tileset > 
