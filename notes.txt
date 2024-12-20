@@ -10,6 +10,12 @@ projet
 projet settings > input map > add new action
 click +
 
+editor > manage export template > dl and install
+
+project > export > enable pck
+
+product name
+
 =======================
 game
 

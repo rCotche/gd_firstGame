@@ -2,5 +2,7 @@
 .godot/
 /android/
 
+# jeux
+"First Game.exe"
 # mon scipt
 gitPush.bat
