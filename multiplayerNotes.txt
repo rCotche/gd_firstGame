@@ -15,3 +15,12 @@ projet settings > autoload > multiplayer_manger > create folder multiplayer dans
 ========
 
 debug menu > run multiple instance > activation plusieurs instance (enable it)> 2
+
+========
+
+MultiplayerSpawner node
+node2d node > rename to players
+
+MultiplayerSpawner node > Spawner path > players node
+
+MultiplayerSpawner node > spawn limit > 2 (car 2 player game)

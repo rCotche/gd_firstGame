@@ -3,6 +3,9 @@ extends Node
 const SERVER_PORT = 8080
 const SERVER_IP = "127.0.0.1"
 
+#declare scene
+var multiplayer_scene = preload("res://scenes/multiplayer_player.tscn")
+
 func become_host():
 	print("starting host!")
 	#ENetMultiplayerPeer : C'est un outil de Godot
@@ -60,6 +63,12 @@ func join_as_player_2():
 func _add_player_to_game(id: int):
 	#Affiche un message en remplaçant %s par la valeur de id.
 	print("Player %s joined" % id)
+	
+	#instantiate the scene
+	var player_to_add = multiplayer_scene.instantiate()
+	player_to_add.player_id = id
+	player_to_add.name = str(id)
+	
 func _del_player(id: int):
 	#Affiche un message en remplaçant %s par la valeur de id.
 	print("Player %s left" % id)
