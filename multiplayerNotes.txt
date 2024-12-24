@@ -11,3 +11,7 @@ button node > pressed signal > button "pick" receiver method
 ========
 
 projet settings > autoload > multiplayer_manger > create folder multiplayer dans scripts > save script multiplayer_manager
+
+========
+
+debug menu > run multiple instance > activation plusieurs instance (enable it)> 2

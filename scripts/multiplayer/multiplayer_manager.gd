@@ -47,7 +47,7 @@ func become_host():
 	multiplayer.peer_disconnected.connect(_del_player)
 	
 func join_as_player_2():
-	print("join as player 2")
+	print("joined !")
 	#step 1 to create client: instance
 	var client_peer = ENetMultiplayerPeer.new()
 	#step 2 to create client: configure it
