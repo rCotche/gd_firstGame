@@ -18,12 +18,13 @@ func become_host():
 	#Ici, on crée un peer serveur,
 	#ce qui signifie qu'on veut que le jeu devienne le hôte du multijoueur.
 	#Tous les autres joueurs vont se connecter à cette instance.
-	var server_peer = ENetMultiplayerPeer.new()
+	var server_peer = ENetMultiplayerPeer.new()#step 1 to create server: instance
 	#La méthode create_server(SERVER_PORT)
 	#configure le server_peer
 	#pour qu'il écoute les connexions
 	#sur un port spécifique.
-	server_peer.create_server(SERVER_PORT)
+	server_peer.create_server(SERVER_PORT)#step 2 to create server: configure it
+	
 	#multiplayer est une propriété intégrée dans Godot
 	#qui appartient à tous les nœuds.
 	#C'est l'outil principal utilisé pour gérer le multijoueur dans ton jeu.
@@ -36,7 +37,30 @@ func become_host():
 	#que j'ai configuré comme serveur.
 	#Cela signifie que ton jeu devient un serveur multijoueur
 	#et est maintenant prêt à accepter les connexions d'autres joueurs.
-	multiplayer.multiplayer_peer = server_peer
+	multiplayer.multiplayer_peer = server_peer#step 3 to create server: use it
+	
+	#signal
+	#quand un joueur se connecte
+	multiplayer.peer_connected.connect(_add_player_to_game)
+	#signal
+	#quand un joueur se deconnecte
+	multiplayer.peer_disconnected.connect(_del_player)
 	
 func join_as_player_2():
 	print("join as player 2")
+	#step 1 to create client: instance
+	var client_peer = ENetMultiplayerPeer.new()
+	#step 2 to create client: configure it
+	client_peer.create_client(SERVER_IP,SERVER_PORT)
+	#step 3 to create client: use it
+	multiplayer.multiplayer_peer = client_peer
+
+	
+
+func _add_player_to_game(id: int):
+	#Affiche un message en remplaçant %s par la valeur de id.
+	print("Player %s joined" % id)
+func _del_player(id: int):
+	#Affiche un message en remplaçant %s par la valeur de id.
+	print("Player %s left" % id)
+	
