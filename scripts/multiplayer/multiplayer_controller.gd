@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 var direction = 1
+var do_jump = false
+var _is_on_floor = true
 
 @export var player_id := 1:
 	set(id):
@@ -34,8 +36,9 @@ func _apply_movement_from_input(delta):
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if do_jump and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		do_jump = false
 
 	#get the input direction: -1, 0, 1
 	var direction = %InputSynchronizer.input_direction

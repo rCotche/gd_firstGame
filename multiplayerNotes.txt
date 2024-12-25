@@ -49,3 +49,6 @@ sync position
 
 PlayerSinchronizer
 multplayersynchronizer node selected > replication tab (en bas au niveau de la console) > add property to sync > multiplayer player node > select property node2d position
+
+========
+tu peux select la tab replication directement et écrire la property qu'on souhaite repliquer.
