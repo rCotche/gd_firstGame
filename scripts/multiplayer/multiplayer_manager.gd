@@ -58,6 +58,10 @@ func become_host():
 	#quand un joueur se deconnecte
 	multiplayer.peer_disconnected.connect(_del_player)
 	
+	_remove_single_player()
+	
+	#serveur ou host a toujours un "network id" 1
+	_add_player_to_game(1)
 func join_as_player_2():
 	print("joined !")
 	#step 1 to create client: instance
@@ -66,7 +70,8 @@ func join_as_player_2():
 	client_peer.create_client(SERVER_IP,SERVER_PORT)
 	#step 3 to create client: use it
 	multiplayer.multiplayer_peer = client_peer
-
+	
+	_remove_single_player()
 	
 
 func _add_player_to_game(id: int):
@@ -87,4 +92,14 @@ func _add_player_to_game(id: int):
 func _del_player(id: int):
 	#Affiche un message en remplaçant %s par la valeur de id.
 	print("Player %s left" % id)
+	#si il y a pas de player avec l'id alors ne fait rien
+	if not _player_spawn_node.has_node(str(id)):
+		return
 	
+	#delete le player avec l'id
+	_player_spawn_node.get_node(str(id)).queue_free()
+
+func _remove_single_player():
+	print("Remove single player")
+	var player_to_remove = get_tree().get_current_scene().get_node("Player")
+	player_to_remove.queue_free()

@@ -24,3 +24,7 @@ node2d node > rename to players
 MultiplayerSpawner node > Spawner path > players node
 
 MultiplayerSpawner node > spawn limit > 2 (car 2 player game)
+
+========
+
+remote tab to debug
