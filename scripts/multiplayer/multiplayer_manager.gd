@@ -6,8 +6,17 @@ const SERVER_IP = "127.0.0.1"
 #declare scene
 var multiplayer_scene = preload("res://scenes/multiplayer_player.tscn")
 
+#declare reference
+var _player_spawn_node
+
 func become_host():
 	print("starting host!")
+	
+	#equivalent de $Players ?
+	#le script est un autoload donc n'est pas attaché à un node
+	#dont refresh scene when the player died en multiplayer mode
+	_player_spawn_node = get_tree().get_current_scene().get_node("Players")
+	
 	#ENetMultiplayerPeer : C'est un outil de Godot
 	#qui utilise ENet pour permettre
 	#à plusieurs joueurs de se connecter les uns aux autres.
@@ -68,6 +77,12 @@ func _add_player_to_game(id: int):
 	var player_to_add = multiplayer_scene.instantiate()
 	player_to_add.player_id = id
 	player_to_add.name = str(id)
+	
+	#add a child dasn le noeud Players
+	#the multiplayer spawner gonna detect that
+	#car on a demande au MultiplayerSpawner de regarder multiplayer_scene
+	#Maintenant le MultiplayerSpawner va spawn et sync the multiplayer player
+	_player_spawn_node.add_child(player_to_add, true)
 	
 func _del_player(id: int):
 	#Affiche un message en remplaçant %s par la valeur de id.
