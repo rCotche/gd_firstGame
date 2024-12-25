@@ -30,3 +30,13 @@ MultiplayerSpawner node > spawn limit > 2 (car 2 player game)
 remote tab to debug au niveau de la hiérarchie/tree
 
 au niveau de la console (en bas) > click sur debogeur > session1&2 tab
+
+========
+
+multplayersynchronizer node selected > replication tab (en bas au niveau de la console) > InputSynchronizer:input_direction hit enter
+
+========
+
+multplayersynchronizer chaque propriete qu'on a besoin ?
+
+multplayersynchronizer node selected > replication tab (en bas au niveau de la console) > add property to sync > multiplayer player node > select property

@@ -10,6 +10,8 @@ var direction = 1
 @export var player_id := 1:
 	set(id):
 		player_id = id
+		#establish client authority
+		%InputSynchronizer.set_multiplayer_authority(id)
 
 func _apply_animations(delta):
 	#Flip the sprite
@@ -36,7 +38,7 @@ func _apply_movement_from_input(delta):
 		velocity.y = JUMP_VELOCITY
 
 	#get the input direction: -1, 0, 1
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction = %InputSynchronizer.input_direction
 	
 	#apply movement
 	if direction:
@@ -47,4 +49,9 @@ func _apply_movement_from_input(delta):
 	move_and_slide()
 
 func _physics_process(delta: float) -> void:
-	pass
+	#on souhaite que seul le serveur peut appliquer des changements
+	
+	#check si c'est le serveur
+	#si oui alors apply movement
+	if multiplayer.is_server():
+		_apply_movement_from_input(delta)
