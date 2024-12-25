@@ -32,11 +32,20 @@ remote tab to debug au niveau de la hiérarchie/tree
 au niveau de la console (en bas) > click sur debogeur > session1&2 tab
 
 ========
+sync input to server
 
+InputSynchronizer
 multplayersynchronizer node selected > replication tab (en bas au niveau de la console) > InputSynchronizer:input_direction hit enter
 
 ========
-
+sync id to server
 multplayersynchronizer chaque propriete qu'on a besoin ?
 
-multplayersynchronizer node selected > replication tab (en bas au niveau de la console) > add property to sync > multiplayer player node > select property
+PlayerSynchronizer
+multplayersynchronizer node selected > replication tab (en bas au niveau de la console) > add property to sync > multiplayer player node > select property id
+
+========
+sync position
+
+PlayerSinchronizer
+multplayersynchronizer node selected > replication tab (en bas au niveau de la console) > add property to sync > multiplayer player node > select property node2d position
