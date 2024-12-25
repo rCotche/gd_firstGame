@@ -1,7 +1,10 @@
-[gd_scene load_steps=26 format=3 uid="uid://cqyfdbjbaud7l"]
+[gd_scene load_steps=28 format=3 uid="uid://cqyfdbjbaud7l"]
 
 [ext_resource type="Script" path="res://scripts/multiplayer/multiplayer_controller.gd" id="1_fd5fs"]
 [ext_resource type="Texture2D" uid="uid://b0k5wna6c06bt" path="res://assets/sprites/knight.png" id="2_3m6uv"]
+[ext_resource type="Script" path="res://scripts/multiplayer/multiplayer_input.gd" id="2_oorei"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_64sha"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cim4x"]
 atlas = ExtResource("2_3m6uv")
@@ -173,6 +176,10 @@ radius = 6.0
 
 [node name="MultiplayerPlayer" type="CharacterBody2D"]
 script = ExtResource("1_fd5fs")
+
+[node name="InputSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_64sha")
+script = ExtResource("2_oorei")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)

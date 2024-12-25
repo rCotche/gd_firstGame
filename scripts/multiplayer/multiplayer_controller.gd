@@ -5,22 +5,13 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var direction = 1
+
 @export var player_id := 1:
 	set(id):
 		player_id = id
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
-	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	#get the input direction: -1, 0, 1
-	var direction := Input.get_axis("move_left", "move_right")
-	
+func _apply_animations(delta):
 	#Flip the sprite
 	if direction > 0:
 		animated_sprite.flip_h = false
@@ -35,8 +26,17 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("run")
 	else:
 		animated_sprite.play("jump")
-	
-	
+func _apply_movement_from_input(delta):
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+	# Handle jump.
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+
+	#get the input direction: -1, 0, 1
+	var direction := Input.get_axis("move_left", "move_right")
 	
 	#apply movement
 	if direction:
@@ -45,3 +45,6 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+func _physics_process(delta: float) -> void:
+	pass
