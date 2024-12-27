@@ -30,7 +30,7 @@ func _apply_animations(delta):
 		animated_sprite.flip_h = true
 	
 	#Play animation
-	if is_on_floor():
+	if _is_on_floor:
 		if direction == 0:
 			animated_sprite.play("idle")
 		else:
@@ -48,7 +48,7 @@ func _apply_movement_from_input(delta):
 		do_jump = false
 
 	#get the input direction: -1, 0, 1
-	var direction = %InputSynchronizer.input_direction
+	direction = %InputSynchronizer.input_direction
 	
 	#apply movement
 	if direction:
@@ -64,4 +64,9 @@ func _physics_process(delta: float) -> void:
 	#check si c'est le serveur
 	#si oui alors apply movement
 	if multiplayer.is_server():
+		_is_on_floor = is_on_floor()
 		_apply_movement_from_input(delta)
+	
+	#MultiplayerManager : autoload
+	if not multiplayer.is_server() || MultiplayerManager.host_mode_enabled:
+		_apply_animations(delta)

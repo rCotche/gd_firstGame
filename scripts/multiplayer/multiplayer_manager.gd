@@ -8,6 +8,7 @@ var multiplayer_scene = preload("res://scenes/multiplayer_player.tscn")
 
 #declare reference
 var _player_spawn_node
+var host_mode_enabled = false
 
 func become_host():
 	print("starting host!")
@@ -16,6 +17,8 @@ func become_host():
 	#le script est un autoload donc n'est pas attaché à un node
 	#dont refresh scene when the player died en multiplayer mode
 	_player_spawn_node = get_tree().get_current_scene().get_node("Players")
+	
+	host_mode_enabled = true
 	
 	#ENetMultiplayerPeer : C'est un outil de Godot
 	#qui utilise ENet pour permettre
