@@ -52,3 +52,6 @@ multplayersynchronizer node selected > replication tab (en bas au niveau de la c
 
 ========
 tu peux select la tab replication directement et écrire la property qu'on souhaite repliquer.
+
+========
+select platform > drag and drop animation player

@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqwvcsbmo4mg0"]
+[gd_scene load_steps=5 format=3 uid="uid://cqwvcsbmo4mg0"]
 
+[ext_resource type="Script" path="res://scripts/platform.gd" id="1_7ra7i"]
 [ext_resource type="Texture2D" uid="uid://bet1wkls0nejb" path="res://assets/sprites/platforms.png" id="1_e6q60"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xq1k4"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya7u7"]
 size = Vector2(30, 8)
 
 [node name="Platform" type="AnimatableBody2D"]
+script = ExtResource("1_7ra7i")
+
+[node name="PlatformSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xq1k4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_e6q60")
