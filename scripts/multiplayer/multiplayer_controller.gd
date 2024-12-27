@@ -70,3 +70,15 @@ func _physics_process(delta: float) -> void:
 	#MultiplayerManager : autoload
 	if not multiplayer.is_server() || MultiplayerManager.host_mode_enabled:
 		_apply_animations(delta)
+		
+
+func mark_dead():
+	print("mark player died")
+	$CollisionShape2D.set_deferred("disabled", true)
+	$RespawnTimer.start()
+
+func _respawn():
+	print("Respawned")
+	$CollisionShape2D.set_deferred("disabled", false)
+	position = MultiplayerManager.respawn_point
+	#$CollisionShape2D.set_deferred("disabled", false)

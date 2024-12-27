@@ -9,6 +9,8 @@ var multiplayer_scene = preload("res://scenes/multiplayer_player.tscn")
 #declare reference
 var _player_spawn_node
 var host_mode_enabled = false
+var multiplayer_mode_enabled = false
+var respawn_point = Vector2(30,20)
 
 func become_host():
 	print("starting host!")
@@ -19,6 +21,7 @@ func become_host():
 	_player_spawn_node = get_tree().get_current_scene().get_node("Players")
 	
 	host_mode_enabled = true
+	multiplayer_mode_enabled = true
 	
 	#ENetMultiplayerPeer : C'est un outil de Godot
 	#qui utilise ENet pour permettre
@@ -67,6 +70,8 @@ func become_host():
 	_add_player_to_game(1)
 func join_as_player_2():
 	print("joined !")
+	multiplayer_mode_enabled = true
+	
 	#step 1 to create client: instance
 	var client_peer = ENetMultiplayerPeer.new()
 	#step 2 to create client: configure it
